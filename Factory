@@ -1,0 +1,74 @@
+public abstract class Car{
+    public abstract float getSpeed();
+    public abstract float getMileage();
+    public abstract boolean isConvertable();
+    
+    @Override
+	public String toString(){
+		return "speed"+this.getSpeed()+"mileage"+this.getMileage()+"convertable"+this.isConvertable();
+}
+}
+ class Dawn extends Car{
+    private float speed;
+    private float mileage;
+    private boolean isConvertable;
+    
+    
+    
+    Dawn(float speed,float mileage,boolean isConvertable){
+        this.speed = speed;
+        this.mileage=mileage;
+        this.isConvertable=isConvertable;
+  
+    }
+    
+    public float getSpeed(){
+        return this.speed;
+    }
+    public float getMileage(){
+        return this.mileage;
+    }
+    public boolean isConvertable(){
+        return this.isConvertable;
+    }
+}
+
+ class Escort extends Car{
+    private float speed;
+    private float mileage;
+    private boolean isConvertable;
+    Escort(float speed,float mileage,boolean isConvertable){
+        this.speed = speed;
+        this.mileage=mileage;
+        this.isConvertable=isConvertable;
+    }
+    
+    public float getSpeed(){
+        return this.speed;
+    }
+    public float getMileage(){
+        return this.mileage;
+    }
+    public boolean isConvertable(){
+        return this.isConvertable;
+    }
+}
+
+class Carfactory{
+    public static Car getCar(String type,float speed,float mileage,boolean isConvertable){
+        if("Dawn".equalsIgnoreCase(type)) return new Dawn(speed,mileage,isConvertable);
+        else if("Escort".equalsIgnoreCase(type)) return new Escort(speed,mileage,isConvertable);
+        else return null;
+        
+    }
+    
+}
+
+ class FacDemo{
+    public static void main(String args[]){
+    
+    Car dawn = Carfactory.getCar("Dawn",140,12,true);
+    System.out.println(dawn);
+
+    }
+}
